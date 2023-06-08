@@ -3,20 +3,108 @@ $bg: rgb(15, 15, 15);
 .banner {
   background-color: $bg;
   width: 100%;
-  height: 400px;
+  height: 500px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 3rem;
+  box-sizing: border-box;
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    position: absolute;
+    background: $bg;
+    opacity: 0.7;
+  }
+  h1,
+  p {
+    color: whitesmoke;
+    font-size: 3rem;
+    width: 40%;
+    z-index: 10;
+    padding: 0 1rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    font-weight: 100;
+    word-spacing: 3px;
+    color: rgb(255, 254, 254);
+  }
+  > div {
+    display: flex;
+
+    button {
+      cursor: pointer;
+      padding: 1rem;
+      width: 150px;
+      outline: none;
+      border: none;
+      z-index: 10;
+      border-radius: 5px;
+      margin: 1rem;
+      font-size: 1.2rem;
+      background-color: whitesmoke;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.5s;
+      &:hover {
+        opacity: 0.7;
+      }
+
+      &:nth-child(odd) {
+        background-color: whitesmoke;
+        color: $bg;
+      }
+      &:nth-child(even) {
+        background-color: rgb(72, 71, 71);
+        color: rgb(234, 231, 231);
+      }
+      svg {
+        margin: 0 10px;
+        font-size: 1.7rem;
+      }
+    }
+  }
 }
 
 .row {
   background-color: $bg;
   padding: 1rem;
->h2{
- font-weight: 400;
- margin: 0.3rem;
-
-}
+  > h2 {
+    font-weight: 400;
+    margin: 0.3rem;
+  }
   > div {
     display: flex;
     overflow-x: auto;
+    &::-webkit-scrollbar {
+      height: 5px;
+      background-color: $bg;
+      color: whitesmoke;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #fff;
+      border-radius: 50px;
+      height: 5px;
+    }
+    &::-webkit-scrollbar-track {
+      width: 150px;
+    }
+
+    &::-webkit-scrollbar-track-piece {
+      width: 25px;
+    }
   }
 }
 
@@ -27,6 +115,34 @@ $bg: rgb(15, 15, 15);
   transition: transform 0.5s;
 
   &:hover {
-    transform: translateY(-10px) ;
+    transform: translateY(-10px);
+  }
+}
+
+.genreBox {
+  overflow-x: auto;
+  display: flex;
+  height: 100px;
+  background-color: $bg;
+  > a {
+    color: $bg;
+    background-color: whitesmoke;
+    padding: 1rem 0;
+    margin: 1rem;
+    border-radius: 5px;
+    min-width: 10rem;
+    transition: all 0.5s;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      background-color: rgb(202, 202, 202);
+    }
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
